@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="it"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Controllo Preimballaggi</title>
+<link rel="manifest" href="manifest.json"><meta name="theme-color" content="#0b5cab">
+<link rel="icon" href="icon-192.png"><link rel="apple-touch-icon" href="icon-192.png">
+<style>
+:root{--bg:#f3f5f8;--c:#fff;--t:#1a2330;--m:#5b6675;--l:#d5dbe3;--p:#0b5cab;--ok:#1b7f3b;--ko:#c0392b}
+@media(prefers-color-scheme:dark){:root{--bg:#10141a;--c:#1a212b;--t:#e8edf3;--m:#95a1b0;--l:#2c3644;--p:#4a9be8;--ok:#4cc073;--ko:#ff6b5b}}
+*{box-sizing:border-box}body{margin:0;font:16px/1.4 system-ui,Arial,sans-serif;background:var(--bg);color:var(--t);padding-bottom:env(safe-area-inset-bottom)}
+header{background:var(--p);color:#fff;padding:calc(10px + env(safe-area-inset-top)) 14px 10px;display:flex;justify-content:space-between;align-items:center}
+header h1{font-size:17px;margin:0}header button{background:#0003;color:#fff;border:0;border-radius:6px;padding:6px 10px}
+nav{display:flex;position:sticky;top:0;background:var(--c);border-bottom:1px solid var(--l);z-index:2}
+nav button{flex:1;padding:12px 4px;border:0;background:none;color:var(--m);font-size:15px;border-bottom:3px solid transparent}
+nav button.on{color:var(--p);border-color:var(--p);font-weight:600}
+main{max-width:640px;margin:0 auto;padding:10px}
+.c{background:var(--c);border:1px solid var(--l);border-radius:10px;padding:12px;margin-bottom:10px}
+h2{font-size:15px;margin:0 0 8px;color:var(--p)}label{display:block;font-size:13px;color:var(--m);margin-bottom:8px}
+input,select,textarea{width:100%;font:inherit;padding:9px;margin-top:3px;border:1px solid var(--l);border-radius:7px;background:var(--bg);color:var(--t)}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:8px}.h{font-size:12px;color:var(--m);margin:0 0 6px}
+.r{display:flex;justify-content:space-between;gap:8px;padding:5px 0;border-bottom:1px dashed var(--l);font-size:14px}.r span{color:var(--m)}
+.b{display:inline-block;padding:2px 8px;border-radius:12px;font-size:12px;font-weight:700;color:#fff;margin:4px 0}.b.ok{background:var(--ok)}.b.ko{background:var(--ko)}
+.v{margin-top:10px;padding:12px;border-radius:8px;text-align:center;font-weight:800;color:#fff}.v.ok{background:var(--ok)}.v.ko{background:var(--ko)}
+.w{background:#f5a62333;border-left:3px solid #f5a623;padding:6px 8px;font-size:13px;margin:8px 0}
+.rr{display:flex;justify-content:space-between;align-items:center}.rr button,#add{border:1px solid var(--l);background:none;color:var(--t);padding:7px 12px;border-radius:7px}
+#add{width:100%;background:var(--p);color:#fff;border:0;padding:11px}
+</style></head><body>
+<header><h1>Controllo Preimballaggi</h1><button id="reset">Azzera</button></header>
+<nav><button data-t="1">Lotto 1</button><button data-t="2">Lotto 2</button><button data-t="d">Distributore</button></nav>
+<main><div id="lot1"></div><div id="lot2"></div>
+<section data-lot="d" hidden><p class="h">Saggio rapido a scaffale: conforme se pesata ≥ Qn − TNE.</p><div id="dlist"></div><button id="add">+ Aggiungi prodotto</button></section>
+</main><script src="app.js"></script></body></html>
